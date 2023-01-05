@@ -1,0 +1,92 @@
+.delete-btn {
+    background-color: rgba(206, 8, 8, 0.884);
+    border-radius: 3px;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    height: 35px;
+    padding: 2px;
+    width: 75px;
+}
+
+.edit-btn {
+    background-color: rgba(0, 128, 0, 0.747);
+    border-radius: 3px;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-color: none;
+    border: none;
+    height: 35px;
+    padding: 2px;
+    width: 75px;
+}
+
+.container {
+    background-color: rgb(235, 217, 191);
+
+}
+
+
+#pagination {
+    display: inline-block;
+    float: right;
+    margin-right: 385px;
+}
+
+#pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid rgb(5, 5, 5);
+    margin: 0 4px;
+}
+
+.pageNo {
+    text-align: center;
+}
+
+.active {
+    color: white;
+    background-color: #28c049
+}
+
+.container2 {
+    width: auto;
+    margin: 200px 600px auto 600px;
+}
+
+.container2 form {
+    background-color: rgb(235, 210, 179);
+    padding: 25px;
+    border-radius: 3px;
+}
+
+h1{
+    color: white;
+    text-align: right;
+    margin-right: 60px;
+    margin-top: 140px;
+    font-size: 75px;
+}
+
+#logout{
+    float:right;
+    margin-top: 15px;
+    margin-right: 65px;
+    padding: 10px;
+    color: white;
+    background-color: indianred;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    width: 85px;
+}
+.container3{
+    margin: 350px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
