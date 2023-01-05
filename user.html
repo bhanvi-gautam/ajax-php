@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testform2</title>
+</head>
+
+<body>
+    <form id='formId' action="" method=POST>
+        <label for="First_Name">Enter first name</label><br>
+        <input type="text" id="First_Name" name="First_Name" value=""><br>
+        <label for="Last Name">Last name:</label><br>
+        <input type="text" id="Last_Name" name="Last Name" value=""><br>
+        <label for="Contact_No">Enter contact number</label><br>
+        <input type="text" id="Contact_No" name="Contact_No" value=""><br>
+        <label for="emailID">Enter email-id</label><br>
+        <input type="text" id="emailID" name="emailID" value=""><br>
+        <br><br>
+        <button style="background:#90EE90" id="button">SUBMIT</button>
+        <button style="background:red" id="delete" type="button">DELETE</button>
+
+
+        <div id="result"></div>
+
+    </form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script><!-- Jquery library-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#button").on("click", function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "selectUser.php",
+                type: "POST",
+                cache: false,
+                dataType: 'html',
+                success: function (data) {
+                    myArr = JSON.parse(data);
+                    document.getElementById('First_Name').value = myArr.FirstName;
+                    document.getElementById('Last_Name').value = myArr.Last_Name;
+                    document.getElementById('Contact_No').value = myArr.Contact_No;
+                    document.getElementById('emailID').value = myArr.emailID;
+                }
+            });
+        });
+
+        // $(document).on("click","#delete",function(){
+        $("#delete").click(function () {
+            if (confirm("Do you want to delete this record?")) {
+
+                console.log('hereee');
+
+                $.ajax({
+                    url: "deleteRecord_form.php",
+                    type: "POST",
+                    data: { deleteId: 25 },
+                    success: function (data) {
+                        if (data = "YES") {
+                            //$element.fadeOut().remove();
+                        } else {
+                            // alert("can't delete the  row")
+                        }
+                    }
+
+                });
+
+            }
+        });
+    });
+
+
+
+</script>
+
+</html>

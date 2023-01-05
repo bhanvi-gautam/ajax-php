@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testform</title>
+    <script> 
+        $(function(){
+          $("#includedContent").load("user.html"); 
+        });
+        </script>
+</head>
+<body>
+    <form id='formId' action="" method=POST>
+        <label for="First_Name">Enter first name</label><br>
+        <input type="text" id="First_Name" name="First_Name" value="" ><br>
+        <label for="Last Name">Last name:</label><br>
+        <input type="text" id="Last_Name" name="Last Name" value="" ><br>
+        <label for="Contact_No">Enter contact number</label><br>
+        <input type="text" id="Contact_No" name="Contact_No" value="" ><br>
+        <label for="emailID">Enter email-id</label><br>
+        <input type="text" id="emailID" name="emailID" value="" ><br>
+        <br><br>
+        <button style="background:#90EE90" id="button">SUBMIT</button>
+
+        <div id="result"></div>
+                      
+        </form>  
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script><!-- Jquery library-->
+
+<script>
+
+$(document).ready(function(){
+
+    $("form").on("submit", function(event){
+ 
+        event.preventDefault();
+ 
+        var formValues= $(this).serialize();
+
+        $.post("addUser_form.php", formValues, function(data){
+            // Display the returned data in browser
+            $("#result").html(data);
+        });
+    });
+});
+
+ 
+$.ajax({
+   url:"addUser_form.php",
+cache:false,
+type:"POST",
+data:{ FirstName: '$First_Name', LastName: '$Last_Name',Contact_No: '$Contact_No',EmailID: '$emailID'},
+dataType:"html"
+});
+</script>
+<div id="includedContent"></div>
+</body>
+</html>
